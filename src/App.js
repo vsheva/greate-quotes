@@ -6,6 +6,7 @@ import QuoteDetail from "./pages/QuoteDetail"
 import React from "react";
 import {Redirect} from "react-router-dom";
 import Layout from "./components/layout/Layout"
+import NotFound from "./pages/NotFound";
 
 function App() {
     return (
@@ -23,6 +24,9 @@ function App() {
             </Route>
             <Route path="/new-quote">
                 <NewQuote/>
+            </Route>
+            <Route path="*">
+                <NotFound />
             </Route>
         </Switch>
         </Layout>
