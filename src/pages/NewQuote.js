@@ -1,5 +1,5 @@
 import QuoteForm from "../components/quotes/QuoteForm";
-import {useHistory} from "react-router-dom" //* новое
+import {useHistory} from "react-router-dom" //*
 
 const NewQuote =()=> {
    const history = useHistory();

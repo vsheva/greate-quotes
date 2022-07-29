@@ -1,4 +1,4 @@
-import {useParams, Route, Link} from "react-router-dom";
+import {useParams, Route, Link, useRouteMatch} from "react-router-dom";
 import React from "react";
 import Comments from "../components/comments/Comments";
 import HighlightedQuote from "../components/quotes/HighlightedQuote";
@@ -12,8 +12,10 @@ const DUMMY_QUOTES =[
 
 
 const QuoteDetail = () => {
+    const match =useRouteMatch(); //{path: '/quotes/:quoteId', url: '/quotes/a2', isExact: true, params: {…}
     const params = useParams();
-    console.log(params.quoteId);
+    console.log("match", match)
+
 
     const quote = DUMMY_QUOTES.find(elem=>elem.id === params.quoteId); //a1 из DUMMY_QUOTES === введенному нами маршруту a1  //потому что в App.js из пути url
 
@@ -26,10 +28,10 @@ const QuoteDetail = () => {
         <section>
             <HighlightedQuote text={quote.text} author={quote.author} />
 
-            <Route path={`/quotes/${params.quoteId}`} exact>
+            <Route path={`${match.path}`} exact>
 
                 <div className='centered'>
-                    <Link className="btn--flat" to={`/quotes/${params.quoteId}/comments`}>
+                    <Link className="btn--flat" to={`${match.url}/comments`}>
                         Load Comments
                     </Link>
                 </div>
@@ -37,7 +39,7 @@ const QuoteDetail = () => {
             </Route>
 
             {/*<p>{params.quoteId}</p>*/}
-            <Route path={`/quotes/${params.quoteId}/comments`}>
+            <Route path={`${match.path}/comments`}>
                 <Comments/>
             </Route>
         </section>
