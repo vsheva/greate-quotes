@@ -1,7 +1,8 @@
-import {useParams, Route} from "react-router-dom";
+import {useParams, Route, Link} from "react-router-dom";
 import React from "react";
 import Comments from "../components/comments/Comments";
 import HighlightedQuote from "../components/quotes/HighlightedQuote";
+
 
 const DUMMY_QUOTES =[
     {id:"a1", author:"Valerii", text:"Learning React is great!"},
@@ -24,9 +25,21 @@ const QuoteDetail = () => {
     return (
         <section>
             <HighlightedQuote text={quote.text} author={quote.author} />
-            <h1>Quote detail Page</h1>
-            <p>{params.quoteId}</p>
-            <Route path={`/quotes/${params.quoteId}/comments`}><Comments/> </Route>
+
+            <Route path={`/quotes/${params.quoteId}`} exact>
+
+                <div className='centered'>
+                    <Link className="btn--flat" to={`/quotes/${params.quoteId}/comments`}>
+                        Load Comments
+                    </Link>
+                </div>
+
+            </Route>
+
+            {/*<p>{params.quoteId}</p>*/}
+            <Route path={`/quotes/${params.quoteId}/comments`}>
+                <Comments/>
+            </Route>
         </section>
     )
 }
