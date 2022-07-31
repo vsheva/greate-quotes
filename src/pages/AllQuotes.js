@@ -17,6 +17,7 @@ const AllQuotes = () => {
         sendRequest();
     }, [sendRequest]);
 
+
     if (status === "pending") {
         return (
             <div className="centered">

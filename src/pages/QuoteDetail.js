@@ -13,10 +13,7 @@ const QuoteDetail = () => {
 
     const {quoteId} =params;
 
-    const {sendRequest, status, data:loadedQuote, error}=useHttp(
-        getSingleQuote,
-        true
-    );
+    const {sendRequest, status, data:loadedQuote, error}=useHttp(getSingleQuote, true);
 
     useEffect(()=>{
        sendRequest(quoteId);
@@ -32,9 +29,7 @@ const QuoteDetail = () => {
 
     if (!loadedQuote) {return <p>No quote found!</p> }
 
-   // const quote = DUMMY_QUOTES.find(elem=>elem.id === params.quoteId); //a1 из DUMMY_QUOTES === введенному нами маршруту a1  //потому что в App.js из пути url
 
-   // console.log("quote", quote) //{id: 'a1', author: 'Valerii', text: 'Learning React is great!'}
 
 
     if(!loadedQuote.text) {
@@ -64,6 +59,42 @@ const QuoteDetail = () => {
 }
 
 export default QuoteDetail;
+
+
+const a = (x,y)=>x+y
+const b=a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  <h1>Quote detail Page</h1>

@@ -13,15 +13,15 @@ const NewQuote =()=> {
 
     useEffect (()=>{
         if(status==="completed") {                   //from custom hook useHttp
-            history.push("/quotes")
+            history.push("/quotes")                   // history.push("/quotes") //* push или replace
         }
     }, [status, history])
 
 
     //*sending a request
     const addQuoteHandler=(quoteData)=>{
-        sendRequest(quoteData)
-                                                       // history.push("/quotes") //* push или replace
+        sendRequest(quoteData)  //? это отправит наш addQuote request
+
         console.log("history", history) //{length: 20, action: 'PUSH', location: {…}, createHref: ƒ, push: ƒ, …}
     }
 
