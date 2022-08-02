@@ -1,4 +1,4 @@
-# Great Quotes 
+# Great Quotes Project
 
 ##### you can see this project via the [link](https://react-http-53159.web.app/).
 
